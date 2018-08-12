@@ -16,10 +16,9 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name="Employees")
+@Table(name="spieler")
 @EntityListeners(AuditingEntityListener.class)
-
-public class Employee {
+public class Spieler {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
