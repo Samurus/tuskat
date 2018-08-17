@@ -2,10 +2,15 @@ package com.drachnyen.tuskat.controller;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.validation.Valid;
 
 import com.drachnyen.tuskat.dao.SpielerService;
 import com.drachnyen.tuskat.model.Spieler;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,7 +21,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 
 @RestController
 @RequestMapping("/tus")
