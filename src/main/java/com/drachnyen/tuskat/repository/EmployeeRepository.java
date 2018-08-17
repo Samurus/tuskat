@@ -13,33 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.drachnyen.tuskat;
+package com.drachnyen.tuskat.repository;
 
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.drachnyen.tuskat.model.Employee;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
  * @author Greg Turnquist
  */
 // tag::code[]
-@Data
-@Entity
-public class Employee {
+public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long> {
 
-	private @Id @GeneratedValue Long id;
-	private String firstName;
-	private String lastName;
-	private String description;
-
-	private Employee() {}
-
-	public Employee(String firstName, String lastName, String description) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.description = description;
-	}
 }
 // end::code[]

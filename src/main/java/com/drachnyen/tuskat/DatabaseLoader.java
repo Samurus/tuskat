@@ -15,9 +15,14 @@
  */
 package com.drachnyen.tuskat;
 
+import com.drachnyen.tuskat.model.Employee;
+import com.drachnyen.tuskat.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Greg Turnquist
@@ -35,13 +40,15 @@ public class DatabaseLoader implements CommandLineRunner {
 
 	@Override
 	public void run(String... strings) throws Exception {
-
-		this.repository.save(new Employee("Frodo", "Baggins", "ring bearer"));
-		this.repository.save(new Employee("Bilbo", "Baggins", "burglar"));
-		this.repository.save(new Employee("Gandalf", "the Grey", "wizard"));
-		this.repository.save(new Employee("Samwise", "Gamgee", "gardener"));
-		this.repository.save(new Employee("Meriadoc", "Brandybuck", "pony rider"));
-		this.repository.save(new Employee("Peregrin", "Took", "pipe smoker"));
+		Optional<Employee> byId = repository.findById(1L);
+		if (!byId.isPresent()) {
+			this.repository.save(new Employee("Frodo", "Baggins", "ring bearer"));
+			this.repository.save(new Employee("Bilbo", "Baggins", "burglar"));
+			this.repository.save(new Employee("Gandalf", "the Grey", "wizard"));
+			this.repository.save(new Employee("Samwise", "Gamgee", "gardener"));
+			this.repository.save(new Employee("Meriadoc", "Brandybuck", "pony rider"));
+			this.repository.save(new Employee("Peregrin", "Took", "pipe smoker"));
+		}
 	}
 }
 // end::code[]
